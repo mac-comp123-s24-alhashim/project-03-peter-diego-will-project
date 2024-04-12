@@ -69,7 +69,9 @@ def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
 
 def gameboard(game_board): #DO NOT CHANGE
     print (" ", game_board["1"], " ", "|", " ", game_board["2"], " ", "|", " ", game_board["3"], " ",)
+    print("------|-------|------")
     print (" ", game_board["4"], " ", "|", " ", game_board["5"], " ", "|", " ", game_board["6"], " ",)
+    print("------|-------|------")
     print (" ", game_board["7"], " ", "|", " ", game_board["8"], " ", "|", " ", game_board["9"], " ",)
     pass
 
