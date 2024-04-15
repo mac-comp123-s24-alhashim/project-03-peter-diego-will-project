@@ -52,7 +52,6 @@ def is_space_taken(dict, ask1): # CHECKS IF THE SPACE IS ALREADY TAKEN
     return ask1
 
 def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
-    print(dict["1"])
     if turncount % 2 == 0:
         ask2 = input("X or O?")
         ask2 = check_is_x(ask2)
