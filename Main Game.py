@@ -1,3 +1,5 @@
+import random
+
 game_board = { # DO NOT CHANGE
     "1" : "1",
     "2" : "2",
