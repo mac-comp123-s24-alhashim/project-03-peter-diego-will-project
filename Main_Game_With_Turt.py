@@ -1,5 +1,7 @@
 import random
 
+import turtle
+
 game_board = { # DO NOT CHANGE
     "1" : "1",
     "2" : "2",
@@ -11,6 +13,188 @@ game_board = { # DO NOT CHANGE
     "8" : "8",
     "9" : "9"
 }
+wn = turtle.Screen()
+
+turt = turtle.Turtle()
+
+
+
+
+def check_board(dict, turtle):
+    top_left(dict, turtle)
+
+    top_middle(dict, turtle)
+
+    top_right(dict, turtle)
+
+    middle_left(dict, turtle)
+
+    middle(dict, turtle)
+
+    middle_right(dict, turtle)
+
+    bottom_left(dict, turtle)
+
+    bottom_middle(dict, turtle)
+
+    bottom_right(dict, turtle)
+    return dict
+
+
+def make_board(turtle):
+    turtle.pensize(10)
+    #first line
+    turtle.right(90)
+    turtle.penup()
+    turtle.forward(75)
+    turtle.left(90)
+    turtle.forward(225)
+    turtle.pendown()
+    turtle.backward(450)
+    turtle.penup()
+    turtle.goto(0,0)
+    #second line
+    turtle.left(90)
+    turtle.forward(75)
+    turtle.right(90)
+    turtle.forward(225)
+    turtle.pendown()
+    turtle.backward(450)
+    turtle.penup()
+    turtle.goto(0, 0)
+    #third line
+    turtle.goto(75,75)
+    turtle.left(90)
+    turtle.forward(225-75)
+    turtle.pendown()
+    turtle.backward(450)
+    turtle.penup()
+    turtle.goto(0,0)
+    #fourthline
+    turtle.goto(-75, 75)
+    turtle.forward(225 - 75)
+    turtle.pendown()
+    turtle.backward(450)
+    turtle.penup()
+    return turt
+
+
+def make_x(turtle):
+    turtle.pensize(10)
+    turtle.color("red")
+    turtle.setheading(0)
+    #first line
+    turtle.penup()
+    turtle.left(45)
+    turtle.forward(50)
+    turtle.pendown()
+    turtle.backward(100)
+    turtle.penup()
+    turtle.forward(50)
+    turtle.right(90)
+    turtle.forward(50)
+    turtle.pendown()
+    turtle.backward(100)
+    turtle.penup()
+
+def make_O(turtle):
+    turtle.pensize(10)
+    turtle.color("blue")
+    #making circle
+    turtle.penup()
+    turtle.setheading(180)
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.pendown()
+    turtle.circle(50)
+    turtle.penup()
+    turtle.forward(100)
+
+
+def top_left(dict, turtle):
+    turtle.goto(-150, 150)
+    if dict["1"] == "X":
+        make_x(turt)
+    elif dict["1"] == "O":
+        make_O(turt)
+    else:
+        pass
+def top_middle(dict, turtle):
+    turtle.goto(0, 150)
+    if dict["2"] == "X":
+        make_x(turt)
+    elif dict["2"] == "O":
+        make_O(turt)
+    else:
+        pass
+def top_right(dict, turtle):
+    turtle.goto(150, 150)
+    if dict["3"] == "X":
+        make_x(turt)
+    elif dict["3"] == "O":
+        make_O(turt)
+    else:
+        pass
+
+def middle_left(dict,turtle):
+    turtle.goto(-150, 0)
+    if dict["4"] == "X":
+        make_x(turt)
+    elif dict["4"] == "O":
+        make_O(turt)
+    else:
+        pass
+
+def middle(dict, turtle):
+    turtle.goto(0, 0)
+    if dict["5"] == "X":
+        make_x(turt)
+    elif dict["5"] == "O":
+        make_O(turt)
+    else:
+        pass
+
+
+def middle_right(dict, turtle):
+    turtle.goto(150, 0)
+    if dict["6"] == "X":
+        make_x(turt)
+    elif dict["6"] == "O":
+        make_O(turt)
+    else:
+        pass
+
+def bottom_left(dict, turtle):
+    turtle.goto(-150, -150)
+    if dict["7"] == "X":
+        make_x(turt)
+    elif dict["7"] == "O":
+        make_O(turt)
+    else:
+        pass
+
+def bottom_middle(dict, turtle):
+    turtle.goto(0, -150)
+    if dict["8"] == "X":
+        make_x(turt)
+    elif dict["8"] == "O":
+        make_O(turt)
+    else:
+        pass
+
+def bottom_right(dict, turtle):
+    turtle.goto(150, -150)
+    if dict["9"] == "X":
+        make_x(turt)
+    elif dict["9"] == "O":
+        make_O(turt)
+    else:
+        pass
+
+
+turt.speed("fastest")
+
+make_board(turt)
 
 def check_is_xo(stringin): # CHECKS IF X OR O
     stringin = stringin.upper()
@@ -70,6 +254,7 @@ def gameplayprevious(dict, turncount): #HOW THE GAME FUNCTIONS
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = ask2
     print(gameboard(dict))
+    check_board(game_board, turt)
     turncount = turncount + 1
     print(turncount)
     return turncount
@@ -132,6 +317,7 @@ def is_space_taken(dict, ask1):  # CHECKS IF THE SPACE IS ALREADY TAKEN
 
 
 def middle_start(dict, turncount):
+    check_board(game_board, turt)
     dict["1"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -142,16 +328,19 @@ def middle_start(dict, turncount):
         dict["6"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif game_board["7"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif game_board["8"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif game_board["9"] == "X":
         # changed
@@ -161,27 +350,32 @@ def middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif game_board["2"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif game_board["3"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif game_board["5"] == "X":
         dict["4"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     else:
         print("You got an error in middle_startr")
 
 
 def top_left_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -192,6 +386,7 @@ def top_left_start(dict, turncount):
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -201,6 +396,7 @@ def top_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["9"] == "X":
         # changed
@@ -210,16 +406,19 @@ def top_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["2"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["3"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -229,12 +428,14 @@ def top_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     else:
         print("you got an error in top_right_startr")
 
 
 def top_right_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -249,11 +450,13 @@ def top_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["9"] == "X":
         dict["6"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["8"] == "X":
         #changed
@@ -263,6 +466,7 @@ def top_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["7"] == "X":
         # changed
@@ -272,26 +476,31 @@ def top_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["2"] == "X":
         dict["1"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["1"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["4"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     else:
         print("You got an error in top_right_startr")
 
 def bottom_left_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -302,6 +511,7 @@ def bottom_left_start(dict, turncount):
         dict["4"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -311,6 +521,7 @@ def bottom_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["3"] == "X":
         # changed
@@ -320,6 +531,7 @@ def bottom_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -329,25 +541,30 @@ def bottom_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["6"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["8"] == "X":
         dict["9"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["9"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
 
 
 def bottom_right_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -362,6 +579,7 @@ def bottom_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -371,11 +589,13 @@ def bottom_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["3"] == "X":
         dict["6"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -385,25 +605,30 @@ def bottom_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["6"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["7"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["8"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
 
 
 def top_middle_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -414,11 +639,13 @@ def top_middle_start(dict, turncount):
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["3"] == "X":
         dict["1"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -428,6 +655,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -437,6 +665,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["7"] == "X":
         # changed
@@ -446,6 +675,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -455,6 +685,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["9"] == "X":
         # changed
@@ -464,12 +695,14 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     else:
         print("you got an error in top_middle_start")
 
 
 def middle_left_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -480,6 +713,7 @@ def middle_left_start(dict, turncount):
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -489,6 +723,7 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["3"] == "X":
         # changed
@@ -498,6 +733,7 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -507,11 +743,13 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["7"] == "X":
         dict["1"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -521,6 +759,7 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["9"] == "X":
         # changed
@@ -530,10 +769,12 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
 
 
 def middle_right_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -548,6 +789,7 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -557,11 +799,13 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["3"] == "X":
         dict["9"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -571,6 +815,7 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["7"] == "X":
         # changed
@@ -580,6 +825,7 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -589,17 +835,20 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["9"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     else:
         print("you got an error in middle_right_start")
 
 
 def bottom_middle_start(dict, turncount):
+    check_board(game_board, turt)
     dict["5"] = "O"
     print(gameboard(dict))
     turncount = turncount + 1
@@ -614,6 +863,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -623,6 +873,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["3"] == "X":
         # changed
@@ -632,6 +883,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -641,6 +893,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -650,16 +903,19 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["7"] == "X":
         dict["9"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     elif dict["9"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        check_board(game_board, turt)
         return turncount
     else:
         "You got an error in bottom_middle_start"
