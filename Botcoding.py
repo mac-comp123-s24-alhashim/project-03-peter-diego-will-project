@@ -715,7 +715,7 @@ def middle_startr(dict, turncount):
     turncount = turncount + 1
     ask1 = input("Which space do you want to input for? (1-9)")
     ask1 = is_space_taken(game_board, ask1)
-    dict[ask1] = ask2
+    dict[ask1] = "X"
     if game_board["4"] == "X":
         dict["6"] = "O"
         print(gameboard(dict))
