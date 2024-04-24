@@ -38,3 +38,6 @@ Our plan is to, for the first checkpoint, have a two-player version of the game 
 text, such as | and __ for the hashtag game board. For the second checkpoint, we're aiming to have a version of the bot 
 ready to go, minus graphics. For the last step, we'll add the turtle graphics in and make it all look pretty, along with
 some bug testing.
+
+
+![Screenshot 2024-04-24 at 2.33.35 PM.png](..%2F..%2F..%2FDesktop%2FScreenshot%202024-04-24%20at%202.33.35%E2%80%AFPM.png)
