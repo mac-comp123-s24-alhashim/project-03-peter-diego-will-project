@@ -1,5 +1,19 @@
 import random
 
+#Will's debugging thoughts: I've tried a lot and can't get it to work (all done in debugging not main-game)
+#I think maybe there's an issue for the turncount being more than 4 and also divisible by 2 dsection bc idk
+#how it knows the player should play and there's no gameplay section, but changing it didn't fix it.
+#this makes me think its something wrong w/ how I coded it besides the print functions.
+#IMPORTANT: I think the turncount might be wrong too? It should be hardcode up until 3 right? since
+#0-1-2-3 is technically 4 moves?
+
+#ALSO IMPORTANT: There's something wrong with the no_win_loss command with the random choice, but I cant
+#figure out what.
+
+#My theory at time of writing this is that there is an issue with the turncount. I've had it print
+#it out at all times after making a move, and it jumps back to 2 for some reason when the bot tries to play?
+#That's causing it to jump back to the player move (see the debugging file).
+
 game_board = { # DO NOT CHANGE
     "1" : "1",
     "2" : "2",
