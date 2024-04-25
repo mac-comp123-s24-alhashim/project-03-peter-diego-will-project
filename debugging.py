@@ -119,6 +119,8 @@ def bot_hard_code(dict, turncount):
         top_right_start(dict, turncount)
     elif game_board["7"] == "X":
         bottom_left_start(dict, turncount)
+    elif game_board["8"] == "X":
+        bottom_middle_start(dict, turncount)
     elif game_board["9"] == "X":
         bottom_right_start(dict, turncount)
     elif game_board["2"] == "X":
@@ -963,8 +965,6 @@ def if_no_win_loss(dict, turncount):
     for i in dict:
         if dict[str(i)] == str(i):
             possible_moves.append(str(i))
-        else:
-            pass
     move_choice = random.choice(possible_moves)
     move_choice = str(move_choice)
     dict[move_choice] = "O"
@@ -1108,7 +1108,7 @@ turncount = 0
 print(gameboard(game_board))
 win = ""
 for i in range(9):
-    if turncount <= 5:
+    if turncount <= 4:
         turncount = gameplay(game_board, turncount)
     elif turncount % 2 == 1 and turncount > 4:
         post_t4_bot_code(game_board, turncount)

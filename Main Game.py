@@ -119,6 +119,8 @@ def bot_hard_code(dict, turncount):
         top_right_start(dict, turncount)
     elif game_board["7"] == "X":
         bottom_left_start(dict, turncount)
+    elif game_board["8"] == "X":
+        bottom_middle_start(dict, turncount)
     elif game_board["9"] == "X":
         bottom_right_start(dict, turncount)
     elif game_board["2"] == "X":

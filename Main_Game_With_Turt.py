@@ -304,6 +304,8 @@ def bot_hard_code(dict, turncount):
         top_right_start(dict, turncount)
     elif game_board["7"] == "X":
         bottom_left_start(dict, turncount)
+    elif game_board["8"] == "X":
+        bottom_middle_start(dict, turncount)
     elif game_board["9"] == "X":
         bottom_right_start(dict, turncount)
     elif game_board["2"] == "X":
@@ -931,6 +933,7 @@ def post_t4_bot_code(dict, turncount):
     search_for_win(game_board, turncount)
     search_for_loss(dict, turncount)
     if_no_win_loss(dict, turncount)
+    check_board(game_board, turt)
 
 
 def search_for_win(dict, turncount):
