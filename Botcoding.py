@@ -451,6 +451,8 @@ def post_t4_bot_code(dict, turncount):
         search_for_win(game_board, turncount)
         search_for_loss(dict, turncount)
         if_no_win_loss(dict, turncount)
+    else:
+        pass
 
 
 

@@ -682,110 +682,137 @@ def search_for_win(dict, turncount):
     if dict["1"] == "O" and dict["2"] == "O" and dict["3"] == "3":
         dict["3"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "O" and dict["5"] == "O" and dict["9"] == "9":
         dict["9"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "O" and dict["3"] == "O" and dict["2"] == "2":
         dict["2"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "O" and dict["9"] == "O" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "O" and dict["4"] == "O" and dict["7"] == "7":
         dict["7"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "O" and dict["7"] == "O" and dict["4"] == "4":
         dict["4"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["2"] == "O" and dict["3"] == "O" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["2"] == "O" and dict["5"] == "O" and dict["8"] == "8":
         dict["8"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["2"] == "O" and dict["8"] == "O" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "O" and dict["5"] == "O" and dict["7"] == "7":
         dict["7"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "O" and dict["7"] == "O" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "O" and dict["6"] == "O" and dict["9"] == "7":
         dict["9"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "O" and dict["9"] == "O" and dict["6"] == "6":
         dict["6"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["4"] == "O" and dict["5"] == "O" and dict["6"] == "6":
         dict["6"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["4"] == "O" and dict["6"] == "O" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["4"] == "O" and dict["7"] == "O" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["6"] == "O" and dict["5"] == "O" and dict["4"] == "4":
         dict["4"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["6"] == "O" and dict["9"] == "O" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "O" and dict["5"] == "O" and dict["3"] == "3":
         dict["3"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "O" and dict["4"] == "O" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "O" and dict["8"] == "O" and dict["9"] == "9":
         dict["9"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "O" and dict["9"] == "O" and dict["8"] == "8":
         dict["8"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["8"] == "O" and dict["5"] == "O" and dict["2"] == "2":
         dict["2"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["8"] == "O" and dict["9"] == "O" and dict["7"] == "7":
         dict["7"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["9"] == "O" and dict["5"] == "O" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["9"] == "O" and dict["6"] == "O" and dict["3"] == "3":
         dict["3"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["9"] == "O" and dict["1"] == "O" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     else:
         pass
@@ -796,110 +823,137 @@ def search_for_loss(dict, turncount):
     if dict["1"] == "X" and dict["2"] == "X" and dict["3"] == "3":
         dict["3"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "X" and dict["5"] == "X" and dict["9"] == "9":
         dict["9"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "X" and dict["3"] == "X" and dict["2"] == "2":
         dict["2"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "X" and dict["9"] == "X" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "X" and dict["4"] == "X" and dict["7"] == "7":
         dict["7"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["1"] == "X" and dict["7"] == "X" and dict["4"] == "4":
         dict["4"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["2"] == "X" and dict["3"] == "X" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["2"] == "X" and dict["5"] == "X" and dict["8"] == "8":
         dict["8"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["2"] == "X" and dict["8"] == "X" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "X" and dict["5"] == "X" and dict["7"] == "7":
         dict["7"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "X" and dict["7"] == "X" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "X" and dict["6"] == "X" and dict["9"] == "7":
         dict["9"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["3"] == "X" and dict["9"] == "X" and dict["6"] == "6":
         dict["6"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["4"] == "X" and dict["5"] == "X" and dict["6"] == "6":
         dict["6"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["4"] == "X" and dict["6"] == "X" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["4"] == "X" and dict["7"] == "X" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["6"] == "X" and dict["5"] == "X" and dict["4"] == "4":
         dict["4"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["6"] == "X" and dict["9"] == "X" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "X" and dict["5"] == "X" and dict["3"] == "3":
         dict["3"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "X" and dict["4"] == "X" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "X" and dict["8"] == "X" and dict["9"] == "9":
         dict["9"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["7"] == "X" and dict["9"] == "X" and dict["8"] == "8":
         dict["8"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["8"] == "X" and dict["5"] == "X" and dict["2"] == "2":
         dict["2"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["8"] == "X" and dict["9"] == "X" and dict["7"] == "7":
         dict["7"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["9"] == "X" and dict["5"] == "X" and dict["1"] == "1":
         dict["1"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["9"] == "X" and dict["6"] == "X" and dict["3"] == "3":
         dict["3"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     elif dict["9"] == "X" and dict["1"] == "X" and dict["5"] == "5":
         dict["5"] = "O"
         turncount = turncount + 1
+        print(gameboard(dict))
         return turncount
     else:
         pass
@@ -915,6 +969,7 @@ def if_no_win_loss(dict, turncount):
     move_choice = str(move_choice)
     dict[move_choice] = "O"
     turncount = turncount + 1
+    print(gameboard(dict))
     return turncount
 
 
