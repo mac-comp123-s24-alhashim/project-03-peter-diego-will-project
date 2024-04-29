@@ -1071,10 +1071,10 @@ win = ""
 for i in range(9):
     if type(turncount) != int:
         print("we got a problem chief")
-    if turncount < 4:
+    if turncount < 3:
         turncount = gameplay(game_board, turncount)
         print("you're still in hell", turncount)
-    elif turncount >= 4:
+    elif turncount >= 3:
         print("YOU MADE IT TO POSTT4 BOT CODE", turncount)
         turncount = post_t4_bot_code(game_board, turncount)
     if game_board["1"] == "X" and game_board["2"] == "X" and game_board["3"] == "X":
