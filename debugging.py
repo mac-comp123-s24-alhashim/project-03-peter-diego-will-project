@@ -57,40 +57,18 @@ def is_space_taken(dict, ask1): # CHECKS IF THE SPACE IS ALREADY TAKEN
 
 
 
-
-
-def gameplayprevious(dict, turncount): #HOW THE GAME FUNCTIONS
-    if turncount % 2 == 0:
-        ask2 = input("X or O?")
-        ask2 = check_is_x(ask2)
-    elif turncount % 2 == 1:
-        ask2 = input("X or O?")
-        ask2 = check_is_o(ask2)
-    ask1 = input("Which space do you want to input for? (1-9)")
-    ask1 = is_space_taken(game_board, ask1)
-    dict[ask1] = ask2
-    print(gameboard(dict))
-    turncount = turncount + 1
-    print(turncount)
-    return turncount
-
 def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
     if turncount % 2 == 0:
         ask1 = input("Which space do you want to input for? (1-9)")
         ask1 = is_space_taken(game_board, ask1)
         dict[ask1] = "X"
+        turncount = turncount + 1
     elif turncount % 2 == 1:
         bot_hard_code(dict, turncount)
     #print(gameboard(dict))
-    turncount = turncount + 1
+    #turncount = turncount + 1
     print(turncount)
     return turncount
-
-
-
-
-
-
 
 
 
@@ -744,6 +722,7 @@ def bottom_middle_start(dict, turncount):
 
 
 def post_t4_bot_code(dict, turncount):
+    print("YOU MADE IT TO POSTT4 BOT CODE", turncount)
     #This is the code for what the bot should do after the hard-coding section based on logical statements.
     if turncount % 2 == 0:
         ask1 = input("Which space do you want to input for? (1-9)")
@@ -753,12 +732,13 @@ def post_t4_bot_code(dict, turncount):
         search_for_win(game_board, turncount)
         search_for_loss(game_board, turncount)
         if_no_win_loss(game_board, turncount)
-    turncount = turncount + 1
+    #turncount = turncount + 1
     print(turncount)
     return turncount
 
 
 def search_for_win(dict, turncount):
+    print("search_for_win")
 #This is the bot looking for a win---goes down sequentially from different starting points
     if dict["1"] == "O" and dict["2"] == "O" and dict["3"] == "3":
         dict["3"] = "O"
@@ -1098,12 +1078,15 @@ def if_no_win_loss(dict, turncount):
     for i in dict:
         if dict[str(i)] == str(i):
             possible_moves.append(str(i))
-    move_choice = random.choice(possible_moves)
-    move_choice = str(move_choice)
-    dict[move_choice] = "O"
-    turncount = turncount + 1
-    print(gameboard(dict))
-    print(turncount)
+    if possible_moves == []:
+        print("error in if_no_win_loss")
+    else:
+        move_choice = random.choice(possible_moves)
+        move_choice = str(move_choice)
+        dict[move_choice] = "O"
+        turncount = turncount + 1
+        print(gameboard(dict))
+        print(turncount)
     return turncount
 
 
@@ -1123,122 +1106,7 @@ def if_no_win_loss(dict, turncount):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-turncount = 3
+turncount = 0
 print(gameboard(game_board))
 print(turncount)
 win = ""
@@ -1246,7 +1114,7 @@ for i in range(9):
     if turncount <= 3:
         turncount = gameplay(game_board, turncount)
     elif turncount > 3:
-        post_t4_bot_code(game_board, turncount)
+        turncount = post_t4_bot_code(game_board, turncount)
     if game_board["1"] == "X" and game_board["2"] == "X" and game_board["3"] == "X":
         print("X wins!")
         win = "yes"

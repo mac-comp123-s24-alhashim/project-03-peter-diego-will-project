@@ -97,14 +97,8 @@ def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
         bot_hard_code(dict, turncount)
     #print(gameboard(dict))
     turncount = turncount + 1
-    print(turncount)
+    print(turncount, " AHHH")
     return turncount
-
-
-
-
-
-
 
 
 
@@ -1124,7 +1118,7 @@ turncount = 0
 print(gameboard(game_board))
 win = ""
 for i in range(9):
-    if turncount <= 5:
+    if turncount <= 4:
         turncount = gameplay(game_board, turncount)
     elif turncount % 2 == 1 and turncount > 4:
         post_t4_bot_code(game_board, turncount)
