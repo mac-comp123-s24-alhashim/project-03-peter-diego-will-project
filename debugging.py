@@ -1057,6 +1057,8 @@ print(gameboard(game_board))
 print(turncount)
 win = ""
 for i in range(9):
+    if type(turncount) != int:
+        print("we got a problem chief")
     if turncount <= 3:
         turncount = gameplay(game_board, turncount)
     elif turncount > 3:
