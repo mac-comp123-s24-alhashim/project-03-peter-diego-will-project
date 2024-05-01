@@ -190,11 +190,11 @@ def bottom_right(dict, turtle):
 
 
 turt.speed("fastest")
-
+wn.tracer(0)
 make_board(turt)
 
 check_board(game_board, turt)
-
+wn.update()
 
 wn.exitonclick()
 
