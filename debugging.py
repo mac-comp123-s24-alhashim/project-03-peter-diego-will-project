@@ -65,10 +65,10 @@ def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
         print("turncount is", (turncount + 1))
         turncount = turncount + 1
     elif turncount % 2 == 1:
-        bot_hard_code(dict, turncount)
+        turncount = bot_hard_code(dict, turncount)
     #print(gameboard(dict))
     #turncount = turncount + 1
-
+    print(turncount, " GAMEPLAY VERSION")
     return turncount
 
 
@@ -87,23 +87,24 @@ def gameboard(game_board): #DO NOT CHANGE
 
 def bot_hard_code(dict, turncount):
     if game_board["5"] == "X":
-        middle_start(dict, turncount)
+        turncount = middle_start(dict, turncount)
     elif game_board["4"] == "X":
-        middle_left_start(dict, turncount)
+        turncount = middle_left_start(dict, turncount)
     elif game_board["6"] == "X":
-        middle_right_start(dict, turncount)
+        turncount = middle_right_start(dict, turncount)
     elif game_board["1"] == "X":
-        top_left_start(dict, turncount)
+        turncount = top_left_start(dict, turncount)
     elif game_board["3"] == "X":
-        top_right_start(dict, turncount)
+        turncount = top_right_start(dict, turncount)
     elif game_board["7"] == "X":
-        bottom_left_start(dict, turncount)
+        turncount = bottom_left_start(dict, turncount)
     elif game_board["8"] == "X":
-        bottom_middle_start(dict, turncount)
+        turncount = bottom_middle_start(dict, turncount)
     elif game_board["9"] == "X":
-        bottom_right_start(dict, turncount)
+        turncount = bottom_right_start(dict, turncount)
     elif game_board["2"] == "X":
-        top_middle_start(dict, turncount)
+        turncount = top_middle_start(dict, turncount)
+    return turncount
 
 
 def is_space_taken(dict, ask1):  # CHECKS IF THE SPACE IS ALREADY TAKEN
