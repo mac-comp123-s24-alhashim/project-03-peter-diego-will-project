@@ -735,17 +735,18 @@ def bottom_middle_start(dict, turncount):
 
 def post_t4_bot_code(dict, turncount):
     #This is the code for what the bot should do after the hard-coding section based on logical statements.
-    if turncount % 2 == 0:
+    while turncount % 2 == 0:
         ask1 = input("Which space do you want to input for? (1-9)")
         ask1 = is_space_taken(game_board, ask1)
         dict[ask1] = "X"
         print("turncount is", (turncount + 1))
         turncount = turncount + 1
-    while turncount % 2 == 1:
+    if turncount % 2 == 1:
         turncount = search_for_win(game_board, turncount)
         print(turncount)
         turncount = search_for_loss(game_board, turncount)
         print(turncount)
+    if turncount % 2 == 1:
         turncount = if_no_win_loss(game_board, turncount)
         print(turncount)
     print("turncount is", turncount)
@@ -753,7 +754,7 @@ def post_t4_bot_code(dict, turncount):
 
 
 def search_for_win(dict, turncount):
-    print("search_for_win")
+    print("search_for_win ", turncount)
 #This is the bot looking for a win---goes down sequentially from different starting points
     if dict["1"] == "O" and dict["2"] == "O" and dict["3"] == "3" and turncount % 2 == 1:
         dict["3"] = "O"
@@ -897,7 +898,7 @@ def search_for_win(dict, turncount):
 
 
 def search_for_loss(dict, turncount):
-    print("search_for_loss")
+    print("search_for_loss ", turncount)
 # This is the bot looking for a potential loss---goes down sequentially from different starting points
     if dict["1"] == "X" and dict["2"] == "X" and dict["3"] == "3" and turncount % 2 == 1:
         dict["3"] = "O"
@@ -1038,7 +1039,7 @@ def search_for_loss(dict, turncount):
         print("you passed search_for_loss")
         return turncount
 def if_no_win_loss(dict, turncount):
-    print("search_for_no_win_loss")
+    print("search_for_no_win_loss ", turncount)
     #the bot runs this code if there is no winning or losing move
     possible_moves = []
     for i in dict:
@@ -1046,13 +1047,71 @@ def if_no_win_loss(dict, turncount):
             possible_moves.append(str(i))
     if possible_moves == [] and turncount < 9:
         pass
-    else:
+    elif turncount < 9:
         move_choice = random.choice(possible_moves)
         move_choice = str(move_choice)
+        print("move_choice ", move_choice)
         dict[move_choice] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
+        print("if_no_win_loss ", turncount, " after choosing move?")
+    else:
+        turncount = turncount + 1
+        pass
     return turncount
+
+
+def is_won(game_board):
+    win = ""
+    if game_board["1"] == "X" and game_board["2"] == "X" and game_board["3"] == "X":
+        win = "yes"
+        return win
+    elif game_board["4"] == "X" and game_board["5"] == "X" and game_board["6"] == "X":
+        win = "yes"
+        return win
+    elif game_board["7"] == "X" and game_board["8"] == "X" and game_board["9"] == "X":
+        win = "yes"
+        return win
+    elif game_board["1"] == "X" and game_board["4"] == "X" and game_board["7"] == "X":
+        win = "yes"
+        return win
+    elif game_board["2"] == "X" and game_board["5"] == "X" and game_board["8"] == "X":
+        win = "yes"
+        return win
+    elif game_board["3"] == "X" and game_board["6"] == "X" and game_board["9"] == "X":
+        win = "yes"
+        return win
+    elif game_board["1"] == "X" and game_board["5"] == "X" and game_board["9"] == "X":
+        win = "yes"
+        return win
+    elif game_board["7"] == "X" and game_board["5"] == "X" and game_board["3"] == "X":
+        win = "yes"
+        return win
+    elif game_board["1"] == "O" and game_board["2"] == "O" and game_board["3"] == "O":
+        win = "yes"
+        return win
+    elif game_board["4"] == "O" and game_board["5"] == "O" and game_board["6"] == "O":
+        win = "yes"
+        return win
+    elif game_board["7"] == "O" and game_board["8"] == "O" and game_board["9"] == "O":
+        win = "yes"
+        return win
+    elif game_board["1"] == "O" and game_board["4"] == "O" and game_board["7"] == "O":
+        win = "yes"
+        return win
+    elif game_board["2"] == "O" and game_board["5"] == "O" and game_board["8"] == "O":
+        win = "yes"
+        return win
+    elif game_board["3"] == "O" and game_board["6"] == "O" and game_board["9"] == "O":
+        win = "yes"
+        return win
+    elif game_board["1"] == "O" and game_board["5"] == "O" and game_board["9"] == "O":
+        win = "yes"
+        return win
+    elif game_board["7"] == "O" and game_board["5"] == "O" and game_board["3"] == "O":
+        return win
+    else:
+        return win
 
 
 
@@ -1251,6 +1310,9 @@ make_board(turt)
 wn.update()
 win = ""
 for i in range(9):
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     if type(turncount) != int:
         print("we got a problem chief")
     if turncount < 3:
