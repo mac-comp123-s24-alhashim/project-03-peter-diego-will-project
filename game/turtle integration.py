@@ -1083,6 +1083,11 @@ def search_for_loss(dict, turncount):
         print(gameboard(dict))
         turncount = turncount + 1
         return turncount
+    elif dict["9"] == "X" and dict["6"] == "X" and dict["3"] == "3" and turncount % 2 == 1:
+        dict["3"] = "O"
+        print(gameboard(dict))
+        turncount = turncount + 1
+        return turncount
     else:
         print("you passed search_for_loss")
         return turncount
