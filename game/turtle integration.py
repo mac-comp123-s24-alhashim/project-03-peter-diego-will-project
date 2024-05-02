@@ -395,13 +395,13 @@ def bottom_right_start(dict, turncount):
         rc = str(rc)
         dict[rc] = "O"
         print(gameboard(dict))
-        turncount = turncount + 1
+        turncount = 4
         print("turncount is", turncount)
         return turncount
     elif dict["3"] == "X":
         dict["6"] = "O"
         print(gameboard(dict))
-        turncount = turncount + 1
+        turncount = 4
         print("turncount is", turncount)
         return turncount
     elif dict["4"] == "X":
@@ -411,25 +411,25 @@ def bottom_right_start(dict, turncount):
         rc = str(rc)
         dict[rc] = "O"
         print(gameboard(dict))
-        turncount = turncount + 1
+        turncount = 4
         print("turncount is", turncount)
         return turncount
     elif dict["6"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
-        turncount = turncount + 1
+        turncount = 4
         print("turncount is", turncount)
         return turncount
     elif dict["7"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
-        turncount = turncount + 1
+        turncount = 4
         print("turncount is", turncount)
         return turncount
     elif dict["8"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
-        turncount = turncount + 1
+        turncount = 4
         print("turncount is", turncount)
         return turncount
 
