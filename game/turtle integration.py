@@ -98,7 +98,6 @@ def gameboard(game_board): #DO NOT CHANGE
     pass
 
 
-
 def bot_hard_code(dict, turncount):
     if game_board["5"] == "X":
         turncount = middle_start(dict, turncount)
@@ -236,6 +235,12 @@ def top_left_start(dict, turncount):
         return turncount
     elif dict["3"] == "X":
         dict["2"] = "O"
+        print(gameboard(dict))
+        turncount = 4
+        print("turncount is", turncount)
+        return turncount
+    elif dict["7"] == "X":
+        dict["4"] = "O"
         print(gameboard(dict))
         turncount = 4
         print("turncount is", turncount)
@@ -1220,8 +1225,141 @@ def make_board(turtle):
     turtle.pendown()
     turtle.backward(450)
     turtle.penup()
+    draw_numbers(turtle)
     return turt
 
+def draw_numbers(turtle):
+    turtle.pensize(10)
+    turtle.color("black")
+    # Reference line 1
+    #turtle.goto(-250, 115)
+    #turtle.color("blue")
+    #turtle.pendown()
+    #turtle.setheading(0)
+    #turtle.forward(550)
+    #turtle.penup()
+    #turtle.goto(-250, 200)
+    #turtle.pendown()
+    #turtle.setheading(0)
+    #turtle.forward(550)
+    #turtle.penup()
+    #turtle.color("Black")
+
+    # Make One
+
+    turtle.penup()
+    turt.goto(-175, 115)
+    turtle.pendown()
+    turtle.setheading(0)
+    turtle.forward(50)
+    turtle.penup()
+    turtle.goto(-150,115)
+    turtle.pendown()
+    turtle.setheading(90)
+    turtle.forward(85)
+    turtle.left(135)
+    turtle.forward(25)
+
+    # Make Two
+
+    turtle.penup()
+    turtle.goto(20, 115)
+    turtle.setheading(180)
+    turtle.pendown()
+    turtle.forward(40)
+    turtle.right(120)
+    turtle.forward(65)
+    turtle.circle(20, 200)
+
+    # Make Three
+
+    turtle.penup()
+    turtle.goto(130,200)
+    turtle.pendown()
+    turtle.setheading(0)
+    turtle.forward(40)
+    turtle.right(120)
+    turtle.forward(40)
+    turtle.left(120)
+    turtle.circle(-25, 200)
+    turtle.pendown()
+
+    # Make Four
+
+    turtle.penup()
+    turtle.goto(-125, -10)
+    turtle.pendown()
+    turtle.setheading(180)
+    turtle.forward(50)
+    turtle.right(125)
+    turtle.forward(60)
+    turtle.setheading(270)
+    turtle.forward(80)
+
+    #Make Five
+
+    turtle.penup()
+    turtle.goto(20,45)
+    turtle.pendown()
+    turtle.setheading(180)
+    turtle.forward(150-115)
+    turtle.left(90)
+    turtle.forward(40)
+    turtle.left(110)
+    turtle.circle(-25, 220)
+
+    # Make Six
+
+    turtle.penup()
+    turtle.goto(150, -45)
+    turtle.setheading(0)
+    turtle.pendown()
+    turtle.circle(25)
+    turtle.setheading(180)
+    turtle.circle(-25, 90)
+    turtle.forward(40)
+    turtle.circle(-25, 160)
+
+    # Make Seven
+
+    turtle.penup()
+    turtle.goto(-175, -115)
+    turtle.pendown()
+    turtle.setheading(0)
+    turtle.forward(50)
+    turtle.right(105)
+    turtle.forward(85)
+
+    # Make Eight
+
+    turtle.penup()
+    turtle.goto(0, -160)
+    turtle.setheading(0)
+    turtle.pendown()
+    turtle.circle(22.5)
+    turtle.penup()
+    turtle.goto(0, -205)
+    turtle.pendown()
+    turtle.circle(22.5)
+
+    # Make Nine
+
+    turtle.penup()
+    turtle.goto(150, -160)
+    turtle.pendown()
+    turtle.setheading(0)
+    turtle.circle(25)
+    turtle.setheading(0)
+    turtle.circle(25, 90)
+    turtle.backward(40)
+    turtle.circle(25, -160)
+    turtle.hideturtle()
+    turtle.penup()
+
+def turtle_erase_mode(turtle):
+    turtle.color("white")
+    turtle.pensize(15)
+    return turtle
 
 def make_x(turtle):
     turtle.pensize(10)
@@ -1256,6 +1394,24 @@ def make_O(turtle):
 
 
 def top_left(dict, turtle):
+    if dict["1"] == "X" or dict["1"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(-175, 115)
+        turtle.pendown()
+        turtle.setheading(0)
+        turtle.forward(50)
+        turtle.penup()
+        turtle.goto(-150, 115)
+        turtle.pendown()
+        turtle.setheading(90)
+        turtle.forward(85)
+        turtle.left(135)
+        turtle.forward(25)
+        turtle.pensize(10)
+        turtle.penup()
+    else:
+        pass
     turtle.goto(-150, 150)
     if dict["1"] == "X":
         make_x(turt)
@@ -1264,6 +1420,21 @@ def top_left(dict, turtle):
     else:
         pass
 def top_middle(dict, turtle):
+    if dict["2"] == "X" or dict["2"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(20, 115)
+        turtle.setheading(180)
+        turtle.pendown()
+        turtle.forward(40)
+        turtle.right(120)
+        turtle.forward(65)
+        turtle.circle(20, 200)
+        turtle.pensize(10)
+        turtle.penup()
+    else:
+        pass
+
     turtle.goto(0, 150)
     if dict["2"] == "X":
         make_x(turt)
@@ -1272,6 +1443,22 @@ def top_middle(dict, turtle):
     else:
         pass
 def top_right(dict, turtle):
+    if dict["3"] == "X" or dict["3"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(130, 200)
+        turtle.pendown()
+        turtle.setheading(0)
+        turtle.forward(40)
+        turtle.right(120)
+        turtle.forward(40)
+        turtle.left(120)
+        turtle.circle(-25, 200)
+        turtle.pensize(10)
+        turtle.pendown()
+        turtle.penup()
+    else:
+        pass
     turtle.goto(150, 150)
     if dict["3"] == "X":
         make_x(turt)
@@ -1281,6 +1468,21 @@ def top_right(dict, turtle):
         pass
 
 def middle_left(dict,turtle):
+    if dict["4"] == "X" or dict["4"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(-125, -10)
+        turtle.pendown()
+        turtle.setheading(180)
+        turtle.forward(50)
+        turtle.right(125)
+        turtle.forward(60)
+        turtle.setheading(270)
+        turtle.forward(80)
+        turtle.pensize(10)
+        turtle.penup()
+    else:
+        pass
     turtle.goto(-150, 0)
     if dict["4"] == "X":
         make_x(turt)
@@ -1290,6 +1492,19 @@ def middle_left(dict,turtle):
         pass
 
 def middle(dict, turtle):
+    if dict["5"] == "X" or dict["5"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(20, 45)
+        turtle.pendown()
+        turtle.setheading(180)
+        turtle.forward(150 - 115)
+        turtle.left(90)
+        turtle.forward(40)
+        turtle.left(110)
+        turtle.circle(-25, 220)
+        turtle.pensize(10)
+        turtle.penup()
     turtle.goto(0, 0)
     if dict["5"] == "X":
         make_x(turt)
@@ -1300,6 +1515,20 @@ def middle(dict, turtle):
 
 
 def middle_right(dict, turtle):
+    if dict["6"] == "X" or dict["6"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(150, -45)
+        turtle.setheading(0)
+        turtle.pendown()
+        turtle.circle(25)
+        turtle.setheading(180)
+        turtle.circle(-25, 90)
+        turtle.forward(40)
+        turtle.circle(-25, 160)
+        turtle.penup()
+    else:
+        pass
     turtle.goto(150, 0)
     if dict["6"] == "X":
         make_x(turt)
@@ -1309,6 +1538,19 @@ def middle_right(dict, turtle):
         pass
 
 def bottom_left(dict, turtle):
+    if dict["7"] == "X" or dict["7"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(-175, -115)
+        turtle.pendown()
+        turtle.setheading(0)
+        turtle.forward(50)
+        turtle.right(105)
+        turtle.forward(85)
+        turtle.pensize(10)
+        turtle.penup()
+    else:
+        pass
     turtle.goto(-150, -150)
     if dict["7"] == "X":
         make_x(turt)
@@ -1318,6 +1560,21 @@ def bottom_left(dict, turtle):
         pass
 
 def bottom_middle(dict, turtle):
+    if dict["8"] == "X" or dict["8"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(0, -160)
+        turtle.setheading(0)
+        turtle.pendown()
+        turtle.circle(22.5)
+        turtle.penup()
+        turtle.goto(0, -205)
+        turtle.pendown()
+        turtle.circle(22.5)
+        turtle.pensize(10)
+        turtle.penup()
+    else:
+        pass
     turtle.goto(0, -150)
     if dict["8"] == "X":
         make_x(turt)
@@ -1327,6 +1584,19 @@ def bottom_middle(dict, turtle):
         pass
 
 def bottom_right(dict, turtle):
+    if dict["9"] == "X" or dict["9"] == "O":
+        turtle.penup()
+        turtle_erase_mode(turtle)
+        turtle.goto(150, -160)
+        turtle.pendown()
+        turtle.setheading(0)
+        turtle.circle(25)
+        turtle.setheading(0)
+        turtle.circle(25, 90)
+        turtle.backward(40)
+        turtle.circle(25, -160)
+        turtle.pensize(10)
+        turtle.penup()
     turtle.goto(150, -150)
     if dict["9"] == "X":
         make_x(turt)
@@ -1336,8 +1606,8 @@ def bottom_right(dict, turtle):
         pass
 
 
-
 lossPic = Picture("Screenshot 2024-05-01 at 8.13.26 PM.png")
+
 def loss_picture(lossPic):
     lossPic.show()
 
