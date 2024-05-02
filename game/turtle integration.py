@@ -1,5 +1,6 @@
 import random
 import turtle
+from imageTools import *
 
 wn = turtle.Screen()
 turt = turtle.Turtle()
@@ -1336,7 +1337,8 @@ def bottom_right(dict, turtle):
 
 
 
-
+lossPic = Picture("Screenshot 2024-05-01 at 8.13.26 PM.png")
+lossPic.show()
 
 
 
