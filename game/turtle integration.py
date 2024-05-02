@@ -1338,7 +1338,8 @@ def bottom_right(dict, turtle):
 
 
 lossPic = Picture("Screenshot 2024-05-01 at 8.13.26 PM.png")
-lossPic.show()
+def loss_picture(lossPic):
+    lossPic.show()
 
 
 
@@ -1404,34 +1405,42 @@ for i in range(9):
         break
     elif game_board["1"] == "O" and game_board["2"] == "O" and game_board["3"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
     elif game_board["4"] == "O" and game_board["5"] == "O" and game_board["6"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
     elif game_board["7"] == "O" and game_board["8"] == "O" and game_board["9"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
     elif game_board["1"] == "O" and game_board["4"] == "O" and game_board["7"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
     elif game_board["2"] == "O" and game_board["5"] == "O" and game_board["8"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
     elif game_board["3"] == "O" and game_board["6"] == "O" and game_board["9"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
     elif game_board["1"] == "O" and game_board["5"] == "O" and game_board["9"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
     elif game_board["7"] == "O" and game_board["5"] == "O" and game_board["3"] == "O":
         print("O wins!")
+        loss_picture(lossPic)
         win = "yes"
         break
 if win != "yes":
