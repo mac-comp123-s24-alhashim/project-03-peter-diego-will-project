@@ -62,14 +62,23 @@ def is_space_taken(dict, ask1): # CHECKS IF THE SPACE IS ALREADY TAKEN
 
 
 def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     if turncount % 2 == 0:
         ask1 = input("Which space do you want to input for? (1-9)")
         ask1 = is_space_taken(game_board, ask1)
         dict[ask1] = "X"
         print("turncount is", (turncount + 1))
         turncount = turncount + 1
+        wn.tracer(0)
+        check_board(game_board, turt)
+        wn.update()
     elif turncount % 2 == 1:
         turncount = bot_hard_code(dict, turncount)
+        wn.tracer(0)
+        check_board(game_board, turt)
+        wn.update()
     #print(gameboard(dict))
     #turncount = turncount + 1
     print(turncount, " GAMEPLAY VERSION")
@@ -108,6 +117,9 @@ def bot_hard_code(dict, turncount):
         turncount = bottom_right_start(dict, turncount)
     elif game_board["2"] == "X":
         turncount = top_middle_start(dict, turncount)
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     return turncount
 
 
@@ -119,6 +131,9 @@ def is_space_taken(dict, ask1):  # CHECKS IF THE SPACE IS ALREADY TAKEN
 
 def middle_start(dict, turncount):
     dict["1"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = turncount + 1
     print("turncount is", turncount)
@@ -177,6 +192,9 @@ def middle_start(dict, turncount):
 
 def top_left_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 2
     print("turncount is", turncount)
@@ -237,6 +255,9 @@ def top_left_start(dict, turncount):
 
 def top_right_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 2
     print("turncount is", turncount)
@@ -308,6 +329,9 @@ def top_right_start(dict, turncount):
 
 def bottom_left_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 2
     print("turncount is", turncount)
@@ -372,6 +396,9 @@ def bottom_left_start(dict, turncount):
 
 def bottom_right_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 2
     print("turncount is", turncount)
@@ -436,6 +463,9 @@ def bottom_right_start(dict, turncount):
 
 def top_middle_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 2
     print("turncount is", turncount)
@@ -510,6 +540,9 @@ def top_middle_start(dict, turncount):
 
 def middle_left_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 2
     print("turncount is", turncount)
@@ -582,6 +615,9 @@ def middle_left_start(dict, turncount):
 
 def middle_right_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 4
     print("turncount is", turncount)
@@ -656,6 +692,9 @@ def middle_right_start(dict, turncount):
 
 def bottom_middle_start(dict, turncount):
     dict["5"] = "O"
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     print(gameboard(dict))
     turncount = 2
     print("turncount is", turncount)
@@ -735,21 +774,24 @@ def bottom_middle_start(dict, turncount):
 
 def post_t4_bot_code(dict, turncount):
     #This is the code for what the bot should do after the hard-coding section based on logical statements.
-    while turncount % 2 == 0:
+    while turncount % 2 == 0 and turncount < 9:
         ask1 = input("Which space do you want to input for? (1-9)")
         ask1 = is_space_taken(game_board, ask1)
         dict[ask1] = "X"
         print("turncount is", (turncount + 1))
         turncount = turncount + 1
-    if turncount % 2 == 1:
+    if turncount % 2 == 1 and turncount < 9:
         turncount = search_for_win(game_board, turncount)
         print(turncount)
         turncount = search_for_loss(game_board, turncount)
         print(turncount)
-    if turncount % 2 == 1:
+    if turncount % 2 == 1 and turncount < 9:
         turncount = if_no_win_loss(game_board, turncount)
         print(turncount)
     print("turncount is", turncount)
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
     return turncount
 
 
@@ -1318,6 +1360,9 @@ for i in range(9):
     if turncount < 3:
         turncount = gameplay(game_board, turncount)
         print("you're still in hell", turncount)
+        wn.tracer(0)
+        check_board(game_board, turt)
+        wn.update()
     elif turncount >= 3:
         print("YOU MADE IT TO POSTT4 BOT CODE", turncount)
         turncount = post_t4_bot_code(game_board, turncount)
