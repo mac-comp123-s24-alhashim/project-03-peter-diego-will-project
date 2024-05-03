@@ -1,11 +1,12 @@
 import random
 import turtle
 from imageTools import *
+from tkinter import *
 
-global turncount
+
 wn = turtle.Screen()
 turt = turtle.Turtle()
-
+global turncount
 game_board = { # DO NOT CHANGE
     "1" : "1",
     "2" : "2",
@@ -68,14 +69,8 @@ def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
     check_board(game_board, turt)
     wn.update()
     if turncount % 2 == 0:
-        ask1 = input("Which space do you want to input for? (1-9)")
-        ask1 = is_space_taken(game_board, ask1)
-        dict[ask1] = "X"
-        print("turncount is", (turncount + 1))
-        turncount = turncount + 1
-        wn.tracer(0)
-        check_board(game_board, turt)
-        wn.update()
+        turncount = player_move(lambda pmove, turncount: update_game_state(game_board, turt, pmove, turncount), turncount)
+        print(turncount)
     elif turncount % 2 == 1:
         turncount = bot_hard_code(dict, turncount)
         wn.tracer(0)
@@ -87,7 +82,17 @@ def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
     return turncount
 
 
-
+def update_game_state(dict, turt, pmove, turncount):
+    ask1 = is_space_taken(dict, pmove)
+    ask1 = str(ask1)
+    dict[ask1] = "X"
+    print("turncount is", (turncount + 1))
+    turncount = turncount + 1
+    wn.tracer(0)
+    check_board(game_board, turt)
+    wn.update()
+    print("you made it here")
+    return turncount
 
 
 def gameboard(game_board): #DO NOT CHANGE
@@ -124,7 +129,8 @@ def bot_hard_code(dict, turncount):
     return turncount
 
 
-def is_space_taken(dict, ask1):  # CHECKS IF THE SPACE IS ALREADY TAKEN
+def is_space_taken(dict, pmove):  # CHECKS IF THE SPACE IS ALREADY TAKEN
+    ask1 = pmove
     while dict[ask1] == "X" or dict[ask1] == "O":
         ask1 = input("Please select a different space: ")
     return ask1
@@ -1617,7 +1623,28 @@ lossPic = Picture("Screenshot 2024-05-01 at 8.13.26 PM.png")
 def loss_picture(lossPic):
     lossPic.show()
 
+pmove = None
 
+def player_move(callback, turncount):
+    def submit():
+        global pmove
+        pmove = entry.get()
+        pmove = pmove[-1]
+        pmove = str(pmove)
+        window.destroy()
+        callback(pmove, turncount)
+
+    window = Tk()
+    window.title("Select Move")
+    submit = Button(window, text="Lock in Move", command=submit)
+    submit.pack()
+    entry = Entry(window)
+    entry.config(font=("Helvetica", 20))
+    entry.insert(0, "Insert Move 1-9: ")
+    entry.config(width=20)
+    entry.pack()
+    window.mainloop()
+    return turncount
 
 
 
