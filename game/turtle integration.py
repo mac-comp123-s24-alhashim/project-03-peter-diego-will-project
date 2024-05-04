@@ -1095,6 +1095,7 @@ def search_for_loss(dict, turncount):
         return turncount
     else:
         return turncount
+
 def if_no_win_loss(dict, turncount):
     #the bot runs this code if there is no winning or losing move
     possible_moves = []

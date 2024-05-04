@@ -9,6 +9,7 @@ Diego Kozma, Will Kochel, Peter Simpson
 
 **Team Name:** 
 Big Boys
+
 _____
 
 **Description:**
@@ -39,5 +40,20 @@ text, such as | and __ for the hashtag game board. For the second checkpoint, we
 ready to go, minus graphics. For the last step, we'll add the turtle graphics in and make it all look pretty, along with
 some bug testing.
 
+_____
+
+**Demo Video**
+
+https://youtu.be/D4PToRAMXhY
+
+**Required Packages**
+
+Turtle, Random, imageTools
+
+**Screenshots**
+
+See the screenshots directory. Screenshots in the game directory are for game purposes.
+
+_____
 
 ![Screenshot 2024-04-24 at 2.33.35 PM.png](..%2F..%2F..%2FDesktop%2FScreenshot%202024-04-24%20at%202.33.35%E2%80%AFPM.png)
