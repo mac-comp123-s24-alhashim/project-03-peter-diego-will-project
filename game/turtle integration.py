@@ -60,7 +60,10 @@ def is_space_taken(dict, ask1): # CHECKS IF THE SPACE IS ALREADY TAKEN
     return ask1
 
 
-
+def is_number(ask):
+    while ask != "1" and ask != "2" and ask != "3" and ask != "4" and ask != "5" and ask != "6" and ask != "7" and ask != "8" and ask != "9":
+        ask = input("Please enter a number: ")
+    return ask
 
 
 def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
@@ -69,9 +72,9 @@ def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
     wn.update()
     if turncount % 2 == 0:
         ask1 = input("Which space do you want to input for? (1-9)")
+        ask1 = is_number(ask1)
         ask1 = is_space_taken(game_board, ask1)
         dict[ask1] = "X"
-        print("turncount is", (turncount + 1))
         turncount = turncount + 1
         wn.tracer(0)
         check_board(game_board, turt)
@@ -83,7 +86,6 @@ def gameplay(dict, turncount): #HOW THE GAME FUNCTIONS
         wn.update()
     #print(gameboard(dict))
     #turncount = turncount + 1
-    print(turncount, " GAMEPLAY VERSION")
     return turncount
 
 
@@ -137,27 +139,28 @@ def middle_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = turncount + 1
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if game_board["4"] == "X":
         dict["6"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif game_board["7"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif game_board["8"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif game_board["9"] == "X":
         # changed
@@ -167,25 +170,25 @@ def middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif game_board["2"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif game_board["3"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif game_board["5"] == "X":
         dict["4"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     else:
         print("You got an error in middle_startr")
@@ -198,15 +201,16 @@ def top_left_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 2
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["4"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -216,7 +220,7 @@ def top_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["9"] == "X":
         # changed
@@ -226,25 +230,24 @@ def top_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["2"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["3"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
         return turncount
     elif dict["7"] == "X":
         dict["4"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -254,7 +257,7 @@ def top_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     else:
         print("you got an error in top_left_startr")
@@ -267,8 +270,9 @@ def top_right_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 2
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["4"] == "X":
@@ -279,13 +283,13 @@ def top_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["9"] == "X":
         dict["6"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["8"] == "X":
         #changed
@@ -295,7 +299,7 @@ def top_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["7"] == "X":
         # changed
@@ -305,31 +309,31 @@ def top_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["6"] == "X":
         dict["9"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["2"] == "X":
         dict["1"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["1"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["4"] == "X":
         dict["2"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     else:
         print("You got an error in top_right_startr")
@@ -341,15 +345,16 @@ def bottom_left_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 2
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["1"] == "X":
         dict["4"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -359,7 +364,7 @@ def bottom_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["3"] == "X":
         # changed
@@ -369,7 +374,7 @@ def bottom_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -379,25 +384,25 @@ def bottom_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["6"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["8"] == "X":
         dict["9"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["9"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
 
 
@@ -408,8 +413,9 @@ def bottom_right_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 2
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["1"] == "X":
@@ -420,7 +426,7 @@ def bottom_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -430,13 +436,13 @@ def bottom_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["3"] == "X":
         dict["6"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -446,25 +452,25 @@ def bottom_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["6"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["7"] == "X":
         dict["8"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["8"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
 
 
@@ -475,21 +481,22 @@ def top_middle_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 2
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["1"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["3"] == "X":
         dict["1"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -499,7 +506,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -509,7 +516,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["7"] == "X":
         # changed
@@ -519,7 +526,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -529,7 +536,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["9"] == "X":
         # changed
@@ -539,7 +546,7 @@ def top_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     else:
         print("you got an error in top_middle_start")
@@ -552,15 +559,16 @@ def middle_left_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 2
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["1"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -570,7 +578,7 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["3"] == "X":
         # changed
@@ -580,7 +588,7 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -590,13 +598,13 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["7"] == "X":
         dict["1"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -606,7 +614,7 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["9"] == "X":
         # changed
@@ -616,7 +624,7 @@ def middle_left_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
 
 
@@ -627,8 +635,9 @@ def middle_right_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 4
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["1"] == "X":
@@ -639,7 +648,7 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -649,13 +658,13 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["3"] == "X":
         dict["9"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -665,7 +674,7 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["7"] == "X":
         # changed
@@ -675,7 +684,7 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["8"] == "X":
         # changed
@@ -685,13 +694,13 @@ def middle_right_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["9"] == "X":
         dict["3"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     else:
         print("you got an error in middle_right_start")
@@ -704,8 +713,9 @@ def bottom_middle_start(dict, turncount):
     wn.update()
     print(gameboard(dict))
     turncount = 2
-    print("turncount is", turncount)
+
     ask1 = input("Which space do you want to input for? (1-9)")
+    ask1 = is_number(ask1)
     ask1 = is_space_taken(game_board, ask1)
     dict[ask1] = "X"
     if dict["1"] == "X":
@@ -716,7 +726,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["2"] == "X":
         # changed
@@ -726,7 +736,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["3"] == "X":
         # changed
@@ -736,7 +746,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["4"] == "X":
         # changed
@@ -746,7 +756,7 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["6"] == "X":
         # changed
@@ -756,19 +766,19 @@ def bottom_middle_start(dict, turncount):
         dict[rc] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["7"] == "X":
         dict["9"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     elif dict["9"] == "X":
         dict["7"] = "O"
         print(gameboard(dict))
         turncount = 4
-        print("turncount is", turncount)
+
         return turncount
     else:
         "You got an error in bottom_middle_start"
@@ -783,19 +793,16 @@ def post_t4_bot_code(dict, turncount):
     #This is the code for what the bot should do after the hard-coding section based on logical statements.
     while turncount % 2 == 0 and turncount < 9:
         ask1 = input("Which space do you want to input for? (1-9)")
+        ask1 = is_number(ask1)
         ask1 = is_space_taken(game_board, ask1)
         dict[ask1] = "X"
-        print("turncount is", (turncount + 1))
         turncount = turncount + 1
     if turncount % 2 == 1 and turncount < 9:
         turncount = search_for_win(game_board, turncount)
-        print(turncount)
         turncount = search_for_loss(game_board, turncount)
-        print(turncount)
     if turncount % 2 == 1 and turncount < 9:
         turncount = if_no_win_loss(game_board, turncount)
-        print(turncount)
-    print("turncount is", turncount)
+
     wn.tracer(0)
     check_board(game_board, turt)
     wn.update()
@@ -803,7 +810,6 @@ def post_t4_bot_code(dict, turncount):
 
 
 def search_for_win(dict, turncount):
-    print("search_for_win ", turncount)
 #This is the bot looking for a win---goes down sequentially from different starting points
     if dict["1"] == "O" and dict["2"] == "O" and dict["3"] == "3" and turncount % 2 == 1:
         dict["3"] = "O"
@@ -942,12 +948,10 @@ def search_for_win(dict, turncount):
         turncount = turncount + 1
         return turncount
     else:
-        print("you passed search_for_win")
         return turncount
 
 
 def search_for_loss(dict, turncount):
-    print("search_for_loss ", turncount)
 # This is the bot looking for a potential loss---goes down sequentially from different starting points
     if dict["1"] == "X" and dict["2"] == "X" and dict["3"] == "3" and turncount % 2 == 1:
         dict["3"] = "O"
@@ -1090,10 +1094,8 @@ def search_for_loss(dict, turncount):
         turncount = turncount + 1
         return turncount
     else:
-        print("you passed search_for_loss")
         return turncount
 def if_no_win_loss(dict, turncount):
-    print("search_for_no_win_loss ", turncount)
     #the bot runs this code if there is no winning or losing move
     possible_moves = []
     for i in dict:
@@ -1104,11 +1106,9 @@ def if_no_win_loss(dict, turncount):
     elif turncount < 9:
         move_choice = random.choice(possible_moves)
         move_choice = str(move_choice)
-        print("move_choice ", move_choice)
         dict[move_choice] = "O"
         print(gameboard(dict))
         turncount = turncount + 1
-        print("if_no_win_loss ", turncount, " after choosing move?")
     else:
         turncount = turncount + 1
         pass
@@ -1613,11 +1613,13 @@ def bottom_right(dict, turtle):
 
 
 lossPic = Picture("Screenshot 2024-05-01 at 8.13.26 PM.png")
+tiePic = Picture("Screenshot 2024-05-04 at 12.10.27 PM.png")
 
 def loss_picture(lossPic):
     lossPic.show()
 
-
+def tie_picture(tiePic):
+    tiePic.show()
 
 
 
@@ -1625,7 +1627,7 @@ def loss_picture(lossPic):
 
 turncount = 0
 print(gameboard(game_board))
-print("turncount is", turncount)
+
 wn.tracer(0)
 make_board(turt)
 wn.update()
@@ -1638,12 +1640,10 @@ for i in range(9):
         print("we got a problem chief")
     if turncount < 3:
         turncount = gameplay(game_board, turncount)
-        print("you're still in hell", turncount)
         wn.tracer(0)
         check_board(game_board, turt)
         wn.update()
     elif turncount >= 3:
-        print("YOU MADE IT TO POSTT4 BOT CODE", turncount)
         turncount = post_t4_bot_code(game_board, turncount)
     wn.tracer(0)
     check_board(game_board, turt)
@@ -1721,6 +1721,6 @@ for i in range(9):
         break
 if win != "yes":
     print("It's a tie!")
-
+    tie_picture(tiePic)
 
 wn.exitonclick()
